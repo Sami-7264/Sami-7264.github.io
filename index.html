@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sami Ullah Butt | AI Engineer and Full-Stack Developer</title>
+<meta name="description" content="Sami Ullah Butt, AI Engineer with 6+ years of full-stack experience. Builds production AI agents, voice AI, RAG and multi-tenant SaaS with TypeScript, Python, PHP and Laravel.">
+<meta property="og:title" content="Sami Ullah Butt | AI Engineer">
+<meta property="og:description" content="Production AI agents, voice AI, RAG and multi-tenant SaaS. 6+ years full-stack.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10; --panel:#12161b; --line:#1f252d; --text:#e8ecf1; --muted:#9aa4b2;
+    --accent:#4ade80; --accent2:#38bdf8; --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+  nav{position:sticky;top:0;z-index:10;background:rgba(11,13,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .logo{font-weight:700;letter-spacing:-.02em}
+  nav .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:24px;list-style:none;font-size:14px;color:var(--muted)}
+  nav ul a:hover{color:var(--text)}
+
+  header{padding:96px 0 72px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  header::before{content:"";position:absolute;inset:-40% -10% auto auto;width:640px;height:640px;background:radial-gradient(circle,rgba(74,222,128,.12),transparent 60%);pointer-events:none}
+  .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);border:1px solid rgba(74,222,128,.3);background:rgba(74,222,128,.06);padding:6px 12px;border-radius:999px;margin-bottom:24px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(74,222,128,.15)}
+  h1{font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-.035em;font-weight:700;max-width:820px}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:680px;margin-top:22px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:15px;border:1px solid var(--line);transition:.15s}
+  .btn.primary{background:var(--accent);color:#06240f;border-color:var(--accent)}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn:hover{border-color:#334}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+  .stat{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:var(--panel)}
+  .stat b{display:block;font-size:26px;letter-spacing:-.02em}
+  .stat span{font-size:13px;color:var(--muted)}
+
+  section{padding:80px 0;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:13px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.025em;margin-bottom:12px}
+  .sub{color:var(--muted);max-width:640px;margin-bottom:40px}
+
+  .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .card{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:28px;display:flex;flex-direction:column;transition:.2s}
+  .card:hover{border-color:#2c3540;transform:translateY(-2px)}
+  .card.feature{grid-column:span 2}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+  .card h3{font-size:21px;letter-spacing:-.015em}
+  .badge{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+  .badge.live{color:var(--accent);border-color:rgba(74,222,128,.35)}
+  .card p{color:var(--muted);font-size:15px}
+  .card ul{margin:16px 0 0 18px;color:#c9d1db;font-size:14.5px}
+  .card ul li{margin-bottom:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:20px}
+  .chip{font-size:12px;padding:4px 9px;border-radius:6px;background:#0e1217;border:1px solid var(--line);color:#b6c0cc}
+  .card a.link{margin-top:16px;font-size:14px;color:var(--accent2)}
+  .card a.link:hover{text-decoration:underline}
+
+  .timeline{position:relative;margin-left:8px}
+  .timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--line)}
+  .job{position:relative;padding:0 0 36px 32px}
+  .job::before{content:"";position:absolute;left:-5px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+  .job .head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .job h3{font-size:18px}
+  .job .co{color:var(--accent2);font-weight:500}
+  .job .when{font-size:13px;color:var(--muted)}
+  .job p{color:var(--muted);font-size:15px;margin-top:6px;max-width:760px}
+
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .skill{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--panel)}
+  .skill h4{font-size:15px;margin-bottom:12px}
+  .skill .chips{padding-top:0}
+
+  .contact{text-align:center;padding:96px 0}
+  .contact h2{font-size:clamp(28px,5vw,44px)}
+  .contact .sub{margin:12px auto 32px}
+  .contact .cta{justify-content:center}
+  footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
+
+
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--accent);letter-spacing:0;text-transform:none;margin-bottom:14px;padding:5px 12px;border-radius:999px;border:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.06)}
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .card.feature{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+  .card.feature .txt{display:flex;flex-direction:column}
+  .visual{border:1px solid var(--line);border-radius:12px;background:#0e1217;position:relative;overflow:hidden}
+  .visual::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(154,164,178,.10) 1px,transparent 1px);background-size:18px 18px;pointer-events:none}
+  .card:not(.feature) .visual{margin:-8px -8px 20px;height:250px}
+  /* classroom */
+  .room{position:relative;padding:18px;height:100%;display:flex;flex-direction:column;gap:12px}
+  .room-top{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+  .room-top b{color:var(--text);font-weight:600}
+  .live-dot{display:inline-flex;align-items:center;gap:6px;color:#f87171}
+  .live-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:#f87171;animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.3}}
+  .teacher{display:flex;gap:14px;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(135deg,rgba(74,222,128,.12),rgba(56,189,248,.10));border:1px solid rgba(74,222,128,.25)}
+  .orb{width:46px;height:46px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 30%,#bbf7d0,var(--accent) 50%,#15803d);box-shadow:0 0 0 6px rgba(74,222,128,.12),0 0 26px rgba(74,222,128,.45);animation:breathe 2.4s ease-in-out infinite}
+  @keyframes breathe{50%{box-shadow:0 0 0 10px rgba(74,222,128,.06),0 0 36px rgba(74,222,128,.6)}}
+  .teacher b{font-size:13.5px;display:block}
+  .teacher p{font-size:12.5px;color:#c9d1db;line-height:1.4}
+  .bars{display:flex;gap:2px;align-items:center;height:18px;margin-top:6px}
+  .bars i{width:3px;border-radius:2px;background:var(--accent);height:30%;animation:eq 1s ease-in-out infinite}
+  @keyframes eq{50%{height:100%}}
+  .seats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .seat{aspect-ratio:1.4;border-radius:9px;background:#151a21;border:1px solid var(--line);display:grid;place-items:center}
+  .seat i{width:22px;height:22px;border-radius:50%;background:var(--c)}
+  .seat.on{border-color:var(--accent)}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+  .tg{font-family:"JetBrains Mono",monospace;font-size:11px;padding:3px 8px;border-radius:6px;border:1px solid var(--line);color:var(--muted);background:#12161b}
+  .tg.ok{color:var(--accent);border-color:rgba(74,222,128,.35)}
+  .tg.info{color:var(--accent2);border-color:rgba(56,189,248,.35)}
+  .tx-lines{display:flex;flex-direction:column;gap:6px;font-size:12.5px;color:#c9d1db}
+  .ln{background:#12161b;border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .who{font-family:"JetBrains Mono",monospace;font-size:10.5px;margin-right:8px}
+  .who.s{color:var(--accent2)} .who.a{color:var(--accent)}
+  /* contact bar */
+  .contactbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .cb{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#c9d1db;padding:8px 13px;border-radius:999px;border:1px solid var(--line);background:var(--panel);transition:.15s}
+  a.cb:hover{border-color:rgba(74,222,128,.45);color:var(--text)}
+  .cb svg{width:15px;height:15px;color:var(--accent);flex:none}
+  /* inbox */
+  .inbox{position:relative;padding:14px;display:flex;flex-direction:column;gap:6px}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:9px;background:#12161b;border:1px solid var(--line)}
+  .ch{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;flex:none}
+  .row .tx{flex:1;min-width:0}
+  .row .tx b{font-size:12.5px;display:block;line-height:1.2}
+  .row .tx span{font-size:11.5px;color:var(--muted);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .st{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--accent);flex:none}
+  .row .st.c{color:var(--accent2)}
+  /* roof */
+  .roof{position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:10px}
+  .roof svg{width:100%;height:100%}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted);margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:14px;height:3px;border-radius:2px;background:var(--c)}
+  @media (max-width:820px){ .card.feature{grid-template-columns:1fr} .card.feature .visual{min-height:300px} }
+  @media (prefers-reduced-motion:reduce){ *{animation:none !important} }
+
+  .skills{grid-template-columns:repeat(2,1fr) !important}
+  .sk-head{display:flex;align-items:center;gap:10px}
+  .sk-head i{width:10px;height:10px;border-radius:3px;background:var(--c);box-shadow:0 0 12px var(--c)}
+  .skill h4{margin-bottom:0 !important;font-size:16px}
+  .sk-desc{color:var(--muted);font-size:14px;margin:8px 0 14px}
+  .edu{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:24px 26px;max-width:760px}
+  .edu-ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);color:var(--accent)}
+  .edu-ic svg{width:24px;height:24px}
+  .edu h3{font-size:18px}
+  .edu p{color:var(--muted);font-size:15px}
+  .edu .when{font-size:13px;color:var(--muted)}
+  #education h2{margin-bottom:28px}
+
+  @media (max-width:820px){
+    .edu{grid-template-columns:auto 1fr}.edu .when{grid-column:2}
+    nav ul{display:none}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .projects{grid-template-columns:1fr}
+    .card.feature{grid-column:auto}
+    .skills{grid-template-columns:1fr !important}
+    header{padding:64px 0 48px}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Sami<span>.</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="tag"><span class="dot"></span>Open to relocation to Europe and the Gulf</div>
+    <h1>I build <em>production AI agents</em> and the SaaS products around them.</h1>
+    <p class="lead">I'm Sami Ullah Butt, an AI Engineer with 6+ years of full-stack and backend experience. I ship voice AI, RAG and tool-using agents into live multi-tenant products, with the guardrails, metering and cost controls that make them safe to put in front of paying users.</p>
+    <div class="contactbar">
+      <a class="cb" href="mailto:samibutt8011@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6" stroke-linecap="round"/></svg>samibutt8011@gmail.com</a>
+      <a class="cb" href="tel:+923094647983"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+92 309 4647983</a>
+      <span class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Lahore, Pakistan</span>
+      <a class="cb" href="https://linkedin.com/in/samiullahbutt" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>linkedin.com/in/samiullahbutt</a>
+      <a class="cb" href="https://github.com/sami-7264" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.5a3 3 0 0 0-.9-2.4c3-.3 6.1-1.5 6.1-6.6a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.7 12.7 0 0 0-6.6 0C5.8 1.5 4.7 1.8 4.7 1.8a4.8 4.8 0 0 0-.1 3.6A5.2 5.2 0 0 0 3.2 9c0 5.1 3.1 6.3 6.1 6.6a3 3 0 0 0-.9 2.4V21.5"/></svg>github.com/sami-7264</a>
+      <a class="cb" href="https://www.upwork.com/freelancers/samiullahbutt" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6v6a4 4 0 0 0 8 0V6"/><path d="M12 12c1-3 2.5-5 5-5a4 4 0 0 1 0 8c-2 0-3.5-1-4.5-2.5L11 20"/></svg>Upwork profile</a>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="mailto:samibutt8011@gmail.com">Get in touch</a>
+      <a class="btn" href="#work">See my work</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>6+ yrs</b><span>Software engineering</span></div>
+      <div class="stat"><b>3+ yrs</b><span>LLMs in production</span></div>
+      <div class="stat"><b>2</b><span>Live multi-tenant AI SaaS</span></div>
+      <div class="stat"><b>Voice, RAG</b><span>Agents and guardrails</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow">Selected work</div>
+    <h2>Products I've built</h2>
+    <p class="sub">Two live platforms I lead the engineering behind, plus a computer-vision project. Every feature below runs in production or is under active development.</p>
+
+    <div class="projects">
+      <article class="card feature">
+       <div class="txt">
+        <div class="top"><h3>VineLMS</h3><span class="badge live">Live</span></div>
+        <p>A multi-tenant AI learning platform for coaches, tutors and universities. I built it largely end to end: architecture, backend, frontend, mobile packaging and deployment.</p>
+        <ul>
+          <li><b>Live AI voice teacher</b> that runs spoken lessons for a whole class, on the OpenAI Realtime API with a self-hosted LiveKit media server.</li>
+          <li><b>One-shot course generator:</b> upload audio or video, Whisper transcribes it, and the system drafts a full course with assignments and quizzes.</li>
+          <li><b>Course-aware tutor</b> using retrieval-augmented generation, grounded in each tenant's own content.</li>
+          <li><b>Child-safety and crisis detection</b> on AI conversations, plus an AI-credit wallet with per-tenant spend ceilings.</li>
+          <li>Tenant billing and payouts with Stripe Connect; shipped to mobile with Capacitor.</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">TypeScript</span><span class="chip">AdonisJS 6</span><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">MySQL</span><span class="chip">OpenAI Realtime</span><span class="chip">Whisper</span><span class="chip">LiveKit</span><span class="chip">Stripe Connect</span><span class="chip">AWS S3</span><span class="chip">Capacitor</span>
+        </div>
+        <a class="link" href="https://vinelms.com" target="_blank" rel="noopener">vinelms.com &rarr;</a>
+       </div>
+        <div class="visual" aria-hidden="true">
+          <div class="room">
+            <div class="room-top"><b>Algebra 101 &middot; live lesson</b><span class="live-dot">LIVE</span></div>
+            <div class="teacher">
+              <div class="orb"></div>
+              <div><b>AI teacher</b><p>"Let's solve 2x + 3 = 11 together. What's our first step?"</p>
+                <div class="bars"><i style="animation-delay:-.1s"></i><i style="animation-delay:-.4s"></i><i style="animation-delay:-.7s"></i><i style="animation-delay:-.2s"></i><i style="animation-delay:-.5s"></i><i style="animation-delay:-.8s"></i><i style="animation-delay:-.3s"></i><i style="animation-delay:-.6s"></i><i style="animation-delay:-.9s"></i><i style="animation-delay:-.15s"></i><i style="animation-delay:-.45s"></i><i style="animation-delay:-.75s"></i></div>
+              </div>
+            </div>
+            <div class="seats">
+              <div class="seat"><i style="--c:#38bdf8"></i></div><div class="seat on"><i style="--c:#4ade80"></i></div><div class="seat"><i style="--c:#f472b6"></i></div><div class="seat"><i style="--c:#fbbf24"></i></div>
+              <div class="seat"><i style="--c:#a78bfa"></i></div><div class="seat"><i style="--c:#fb923c"></i></div><div class="seat"><i style="--c:#38bdf8"></i></div><div class="seat"><i style="--c:#4ade80"></i></div>
+            </div>
+            <div class="tx-lines">
+              <div class="ln"><span class="who s">Student 2</span>Subtract 3 from both sides?</div>
+              <div class="ln"><span class="who a">AI</span>Exactly. That leaves 2x = 8. Now what?</div>
+              <div class="ln"><span class="who s">Student 5</span>Divide by 2, so x = 4.</div>
+            </div>
+            <div class="tags"><span class="tg ok">safety check: passed</span><span class="tg info">RAG: 3 course sources</span><span class="tg">credits: 82% left</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="visual" aria-hidden="true">
+          <div class="inbox">
+            <div class="row"><span class="ch" style="background:#25D366">W</span><div class="tx"><b>WhatsApp</b><span>Is the 3-bed still available this week?</span></div><span class="st">AI replied</span></div>
+            <div class="row"><span class="ch" style="background:#2563eb">&#9742;</span><div class="tx"><b>Inbound call</b><span>Booked a viewing for Thursday, 4 pm</span></div><span class="st c">AI handled</span></div>
+            <div class="row"><span class="ch" style="background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)">I</span><div class="tx"><b>Instagram</b><span>What are your opening hours on Sunday?</span></div><span class="st">AI replied</span></div>
+            <div class="row"><span class="ch" style="background:#0084FF">M</span><div class="tx"><b>Messenger</b><span>Do you offer monthly payment plans?</span></div><span class="st">AI replied</span></div>
+          </div>
+        </div>
+        <div class="top"><h3>Smart Track CRM</h3><span class="badge live">Live</span></div>
+        <p>A multi-tenant CRM with AI built into the way businesses talk to customers.</p>
+        <ul>
+          <li><b>AI call receptionist</b> on Vapi and Twilio that answers and handles inbound calls.</li>
+          <li><b>Multi-channel AI chatbot</b> across web, WhatsApp, Messenger and Instagram.</li>
+          <li><b>Auto-generated knowledge base</b> from each tenant's data, with usage metering.</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Sequelize</span><span class="chip">MySQL</span><span class="chip">Next.js</span><span class="chip">Socket.IO</span><span class="chip">Twilio</span><span class="chip">Vapi</span><span class="chip">Elasticsearch</span>
+        </div>
+        <a class="link" href="https://smarttrackcrm.com" target="_blank" rel="noopener">smarttrackcrm.com &rarr;</a>
+      </article>
+
+      <article class="card">
+        <div class="visual" aria-hidden="true">
+          <div class="roof">
+            <svg viewBox="0 0 400 210">
+              <polygon points="70,118 150,52 250,52 330,118" fill="#2a323d"/>
+              <polygon points="150,52 200,92 250,52" fill="#232a33"/>
+              <rect x="92" y="118" width="216" height="78" fill="#1a2028" stroke="#2c3540"/>
+              <rect x="120" y="138" width="34" height="28" rx="2" fill="#0b0d10" stroke="#2c3540"/><rect x="246" y="138" width="34" height="28" rx="2" fill="#0b0d10" stroke="#2c3540"/><rect x="186" y="146" width="28" height="50" rx="2" fill="#0b0d10" stroke="#2c3540"/>
+              <line x1="62" y1="120" x2="338" y2="120" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+              <line x1="150" y1="52" x2="250" y2="52" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+              <line x1="70" y1="118" x2="150" y2="52" stroke="#4ade80" stroke-width="4" stroke-linecap="round"/>
+              <line x1="330" y1="118" x2="250" y2="52" stroke="#4ade80" stroke-width="4" stroke-linecap="round"/>
+              <line x1="150" y1="52" x2="200" y2="92" stroke="#f472b6" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 7"/>
+              <line x1="250" y1="52" x2="200" y2="92" stroke="#f472b6" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 7"/>
+              <g font-family="JetBrains Mono, monospace" font-size="11" fill="#9aa4b2"><text x="300" y="138">eave</text><text x="182" y="42">ridge</text><text x="72" y="80">hip</text><text x="214" y="104">valley</text></g>
+              <g font-family="JetBrains Mono, monospace" font-size="10.5"><rect x="8" y="8" width="104" height="22" rx="5" fill="#12161b" stroke="#2c3540"/><text x="16" y="23" fill="#4ade80">F1 71.2 &#10003;</text></g>
+            </svg>
+          </div>
+        </div>
+        <div class="top"><h3>Light Design</h3><span class="badge">In development</span></div>
+        <p>A computer-vision service that detects roof lines (eave, rake, hip, ridge, valley) from house photos to plan holiday lighting.</p>
+        <ul>
+          <li>SAM3 segmentation plus a custom geometry pipeline for line fitting and role classification.</li>
+          <li>Built an evaluation harness that tracks F1 and latency for every pipeline stage, with assertions that fail when a stage silently does nothing.</li>
+        </ul>
+        <div class="legend"><span><i style="--c:#fbbf24"></i>eave</span><span><i style="--c:#38bdf8"></i>ridge</span><span><i style="--c:#4ade80"></i>hip</span><span><i style="--c:#f472b6"></i>valley</span></div>
+        <div class="chips">
+          <span class="chip">Python 3.11</span><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span><span class="chip">PostgreSQL</span><span class="chip">SAM3</span><span class="chip">React</span><span class="chip">TypeScript</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2>Work history</h2>
+    <p class="sub">From PHP and Laravel ERP systems to leading AI engineering on SaaS products.</p>
+    <div class="timeline">
+      <div class="job">
+        <div class="head"><h3>Senior Software Engineer <span class="co">· XpertDigi</span></h3><span class="when mono">Jul 2023 to present</span></div>
+        <p>Lead the AI engineering behind the company's flagship products, VineLMS and Smart Track CRM, owning architecture, backend, frontend and production rollout.</p>
+      </div>
+      <div class="job">
+        <div class="head"><h3>Software Engineer (Contract) <span class="co">· vFairs</span></h3><span class="when mono">Sep 2023 to Dec 2023</span></div>
+        <p>Full-stack work on a large virtual-events platform, including messaging, chat and the Chat Queue system.</p>
+      </div>
+      <div class="job">
+        <div class="head"><h3>Senior Software Engineer <span class="co">· Smartlane Pvt. Ltd.</span></h3><span class="when mono">Aug 2022 to May 2023</span></div>
+        <p>Full-stack development on LAMP-stack products with PHP and Laravel on the backend and Vue.js on the frontend.</p>
+      </div>
+      <div class="job">
+        <div class="head"><h3>Software Engineer (Part-time) <span class="co">· SA Systems</span></h3><span class="when mono">Apr 2021 to Aug 2022</span></div>
+        <p>Built real-estate ERP modules in PHP and Laravel: payment and installment plans, procurement, HR, finance and project operations.</p>
+      </div>
+      <div class="job" style="padding-bottom:0">
+        <div class="head"><h3>Software Developer <span class="co">· Civic Codes</span></h3><span class="when mono">Feb 2020 to Mar 2021</span></div>
+        <p>Developed and maintained web applications for clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="edu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke-linecap="round"/></svg></div>
+      <div>
+        <h3>Bachelor of Science in Computer Science</h3>
+        <p>Air University, Islamabad, Pakistan</p>
+      </div>
+      <span class="when mono">2016 to 2020</span>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Toolkit</div>
+    <h2>What I work with</h2>
+    <p class="sub">From the model and the API to the server it runs on. These are the tools I've used to build and run real products.</p>
+    <div class="skills">
+      <div class="skill"><div class="sk-head"><i style="--c:#4ade80"></i><h4>AI and LLMs</h4></div><p class="sk-desc">Agents, voice AI and retrieval running in live products.</p><div class="chips"><span class="chip">OpenAI API</span><span class="chip">OpenAI Realtime API</span><span class="chip">Whisper</span><span class="chip">RAG</span><span class="chip">Embeddings</span><span class="chip">Function / tool calling</span><span class="chip">Voice agents</span><span class="chip">Vapi</span><span class="chip">Prompt engineering</span><span class="chip">Guardrails</span><span class="chip">Usage metering</span><span class="chip">Evaluation harnesses</span><span class="chip">SAM3 (computer vision)</span></div></div>
+      <div class="skill"><div class="sk-head"><i style="--c:#38bdf8"></i><h4>Backend and APIs</h4></div><p class="sk-desc">Services, APIs and business logic for multi-tenant SaaS and ERP systems.</p><div class="chips"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">AdonisJS</span><span class="chip">Express</span><span class="chip">PHP 8</span><span class="chip">Laravel</span><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">REST APIs</span><span class="chip">Webhooks</span></div></div>
+      <div class="skill"><div class="sk-head"><i style="--c:#fbbf24"></i><h4>Cloud, DevOps and servers</h4></div><p class="sk-desc">I set up and run the infrastructure my products live on, from a bare Linux server upwards.</p><div class="chips"><span class="chip">Google Cloud (GCP)</span><span class="chip">DigitalOcean</span><span class="chip">AWS (S3)</span><span class="chip">Linux server setup from scratch</span><span class="chip">Linux administration</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Deployment and production support</span><span class="chip">Git</span></div></div>
+      <div class="skill"><div class="sk-head"><i style="--c:#f472b6"></i><h4>Real-time and voice</h4></div><p class="sk-desc">Low-latency audio, calls and live updates.</p><div class="chips"><span class="chip">LiveKit (self-hosted)</span><span class="chip">Twilio</span><span class="chip">Socket.IO</span><span class="chip">Real-time streaming</span></div></div>
+      <div class="skill"><div class="sk-head"><i style="--c:#a78bfa"></i><h4>Databases and search</h4></div><p class="sk-desc">Data models for tenants, billing and content.</p><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Sequelize</span><span class="chip">SQLAlchemy</span><span class="chip">Alembic</span><span class="chip">Elasticsearch</span><span class="chip">Schema design</span></div></div>
+      <div class="skill"><div class="sk-head"><i style="--c:#fb923c"></i><h4>Frontend and mobile</h4></div><p class="sk-desc">Customer-facing apps and admin panels.</p><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Vue.js</span><span class="chip">TypeScript</span><span class="chip">Capacitor (iOS / Android)</span><span class="chip">Vite</span></div></div>
+      <div class="skill"><div class="sk-head"><i style="--c:#22d3ee"></i><h4>Payments and integrations</h4></div><p class="sk-desc">Connecting products to the platforms customers already use.</p><div class="chips"><span class="chip">Stripe</span><span class="chip">Stripe Connect</span><span class="chip">Square</span><span class="chip">WhatsApp API</span><span class="chip">Messenger API</span><span class="chip">Instagram API</span><span class="chip">Meta Marketing API</span><span class="chip">Meta Pixel and Conversions API</span><span class="chip">GoHighLevel</span></div></div>
+      <div class="skill"><div class="sk-head"><i style="--c:#e8ecf1"></i><h4>Architecture</h4></div><p class="sk-desc">How I structure products so they scale across customers.</p><div class="chips"><span class="chip">Multi-tenant SaaS</span><span class="chip">Tenant data isolation</span><span class="chip">Usage-based billing</span><span class="chip">AI cost controls</span><span class="chip">API design</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's build something that ships.</h2>
+    <p class="sub">I'm open to AI engineering and senior full-stack roles, with relocation to Europe or the Gulf. Based in Lahore, Pakistan.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:samibutt8011@gmail.com">samibutt8011@gmail.com</a>
+      <a class="btn" href="tel:+923094647983">+92 309 4647983</a>
+      <a class="btn" href="https://linkedin.com/in/samiullahbutt" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/sami-7264" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.upwork.com/freelancers/samiullahbutt" target="_blank" rel="noopener">Upwork</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="y"></span> Sami Ullah Butt</div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
