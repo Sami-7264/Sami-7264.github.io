@@ -245,6 +245,28 @@ body.detail #detail{display:block}
 .how li span{font-family:Anton;font-size:22px;color:#1f6b46}
 .tchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:42px}
 .tchips span{border:1px solid #cfd5d1;background:#fff;padding:5px 9px;font-size:13px;font-weight:600}
+.revh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:70px 0 6px}
+.revh h2{margin:0}
+.revh span{font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+.ins{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 26px}
+.ins span{border:1.5px solid rgba(255,255,255,.35);padding:5px 11px;font-size:13.5px;font-weight:600}
+.ins b{color:var(--mint);margin-left:5px}
+.revs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.rv{background:#123f2c;color:#fff;padding:22px 24px 18px;border:1px solid rgba(255,255,255,.08)}
+.rv .qm{font-family:Anton;font-size:34px;line-height:.6;color:var(--mint);display:block;height:18px}
+.rv .tx{font-size:15.5px;line-height:1.6;margin:8px 0 14px;max-height:9.6em;overflow:hidden;position:relative}
+.rv .tx p{margin:0 0 10px}
+.rv .tx ul{margin:0 0 10px;padding-left:18px}
+.rv.open .tx{max-height:none}
+.rv:not(.open) .tx.long::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3em;background:linear-gradient(rgba(18,63,44,0),#123f2c)}
+.rv .more{background:none;border:0;color:var(--mint);font-weight:700;font-size:14px;padding:0 0 12px}
+.rv footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px;font-size:13px}
+.rv footer b{display:block;font-weight:700;font-size:14px}
+.rv footer span{opacity:.75}
+.rv .st{color:#f3a54a;white-space:nowrap;font-weight:700}
+.sheet .revs{grid-template-columns:1fr;margin-bottom:42px}
+.sheet .ins span{border-color:#cfd5d1;background:#fff;color:var(--ink)}
+.sheet .ins b{color:#1f6b46}
 .upw{margin-bottom:42px}
 .upb{background:var(--g2);color:#fff;padding:16px 18px;margin-bottom:12px}
 .upb b{font-family:Anton;font-weight:400;font-size:24px;display:block;text-transform:uppercase}
@@ -277,6 +299,7 @@ body.detail #detail{display:block}
 
 @media(max-width:1100px){.work,#detail{padding-left:5vw;padding-right:5vw}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:800px){
+  .revs{grid-template-columns:minmax(0,1fr)}
   .hstats{gap:14px}
   .script{font-size:30px}
   .nav{grid-template-columns:auto 1fr auto;padding:10px 12px}.nav .l,.nav .r{gap:8px}.brand{display:none}.nb{font-size:13px;padding:6px 10px}
@@ -352,6 +375,9 @@ body.detail #detail{display:block}
     <p class="lead">Full-stack platforms, AI agents, e-commerce and integrations from my Upwork portfolio and career. Every project has an animated walkthrough of how it works. Open one for the full story.</p>
     <div class="filt" id="filt" role="group" aria-label="Filter projects"></div>
     <div class="grid" id="grid"></div>
+    <div class="revh" id="reviews"><h2>What clients say</h2><span>5.0 &#9733; &middot; 33 reviews &middot; 100% Job Success</span></div>
+    <div class="ins" id="ins1"></div>
+    <div class="revs" id="revs1"></div>
     <div class="cta"><h3>Have a product idea that needs a full-stack engineer with AI?</h3><div class="btns"><a class="b k" href="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755">Book a call on Upwork</a><a class="b ok" href="https://www.upwork.com/freelancers/~01233a83182140c1f0">View Upwork profile</a></div></div>
   </section>
 </main>
@@ -378,6 +404,9 @@ body.detail #detail{display:block}
     <li><span>03</span><div><b>Build and test.</b> Short iterations you can click through, with tests and evaluation for every AI feature.</div></li>
     <li><span>04</span><div><b>Ship and hand over.</b> Deployed, documented and monitored, with support after launch.</div></li>
   </ol>
+  <h3>What clients say <small style="font-family:Inter Tight;font-size:13px;letter-spacing:.06em;color:#555">5.0 &#9733; REVIEWS</small></h3>
+  <div class="ins" id="ins2"></div>
+  <div class="revs" id="revs2"></div>
   <h3>On Upwork</h3>
   <div class="upw">
     <div class="upb"><b>Top Rated</b><span>100% Job Success &middot; 50 jobs &middot; 33 reviews &middot; $20K+ earned &middot; ID verified</span></div>
@@ -603,6 +632,24 @@ rib.querySelectorAll('.win').forEach((w,i)=>setStep(w,99));
 document.getElementById('tools').innerHTML=TOOLS.map(t=>`<span>${esc(t)}</span>`).join('');
 const hs=document.getElementById('heroScreen');hs.innerHTML=mock(P[1]);
 
+
+/* client reviews, copied from the Upwork profile */
+const REV=[
+ {j:"Performance Enhancements",d:"Apr to Jul 2026",t:["Sami has been great to work with and has far exceeded my expectations with each project. I have been working with developers since 2011, and Sami has been the best to work with. He is very talented and solution-oriented; he gets the job done and doesn’t leave things unfinished. Give him a try, and then you will appreciate the recommendation, a seamless collaboration experience.","From the moment I started working with Sami, it became apparent that he was not your average developer. While many in the industry deliver satisfactory results, Sami transcends this baseline with a refreshing blend of technical prowess and an exceptional work ethic. In an age where deadlines often loom larger than quality, he demonstrates a dedication not just to meeting but to exceeding expectations. Our projects have consistently been delivered on time and with a level of polish that is hard to come by these days.","What sets Sami apart is his ability to communicate effectively throughout the development process. Unlike many developers who may retreat into their code and re-emerge only when the project is complete, Sami engages in a continuous dialogue. He actively seeks feedback, values input, and adapts his approach based on collaborative discussions. This open line of communication makes it feel less like an employer-employee dynamic and more like a partnership. It’s not just about delivering a product; it’s about crafting something meaningful together."]},
+ {j:"QuickBooks Online MCP Server for Claude AI Integration",d:"Feb 2026",t:["Excellent Developer - Highly Recommend! Sami did an outstanding job building a custom QuickBooks MCP server for my business. He delivered professional, well-documented code that exceeded expectations.","What impressed me most:",["Clear communication - Responded quickly to questions and provided daily updates","Quality work - Clean, professional code with proper error handling and security","Went above and beyond - Added a budget comparison tool that wasn't in the original scope","Great documentation - Provided 14 example prompts (asked for 10) and comprehensive setup instructions","Problem solver - Handled complexities like OAuth, sandbox/production environments, and API integration seamlessly"],"Deliverables:",["Full OAuth 2.0 implementation","Read operations (P&L, Balance Sheet, invoices, expenses, payments)","Write operations (create invoices, expenses, record payments)","Budget comparison tool (bonus feature!)","Complete documentation with troubleshooting guide"],"The project was completed on time, within budget, and everything works perfectly. Sami is skilled with APIs, OAuth, TypeScript, and the QuickBooks ecosystem. I highly recommend Sami for any API integration or backend development work. Will definitely hire again for future projects!"]},
+ {j:"Custom Google Review Landing Page",d:"Nov 2025",t:["Sami did an excellent job on my project. He delivered a clean, modern, and fully responsive landing page that matched the vision perfectly. His communication was clear, fast, and consistent throughout the entire build. What stood out the most was his attention to detail — he understood the requirements right away and executed them without needing constant revision.","He was proactive with suggestions, transparent about progress, and kept everything organized. The final product was delivered on time, with smooth animations, great UI decisions, and solid technical quality."]},
+ {j:"Joomla Website Development for ELISOF Engineering",d:"Switzerland · Jan 2026",t:["Sami is a committed and technically skilled Joomla developer who genuinely cares about the success of his clients.","He supported me with website stabilization, cleanup recommendations and helped move critical functionality forward under time pressure. Communication was polite and professional, and he was always willing to help.","While I personally prefer very detailed written explanations and documentation, Sami’s engagement, responsiveness and problem-solving attitude were strong.","I would recommend Sami to clients who value hands-on support and a cooperative working style, and I wish him continued success on Upwork."]},
+ {j:"CRM Inquiry Form CSS",d:"Jan 2026",t:["Sami was very professional and completed the job perfectly. I honestly could not be more happy with the work completed and will definitely use him again in the future for any custom CSS needs."]},
+ {j:"Joomla Website Development for ELISOF Engineering",d:"Switzerland · Jan 2026",t:["Sami was reliable, communicative, and solution-oriented. He supported the project professionally and helped bring stability to the website."]},
+ {j:"Custom Website + CMS for a Luxury Auto Detailing Brand",d:"Jan 2026",t:["Sam is a great developer and delivered as promised!"]}
+];
+const INS=[["Committed to Quality",20],["Clear Communicator",16],["Reliable",13],["Detail Oriented",9],["Solution Oriented",8],["Collaborative",7],["Professional",7],["Accountable for Outcomes",6]];
+const revHTML=REV.map((r,i)=>{const body=r.t.map(x=>Array.isArray(x)?`<ul>${x.map(li=>`<li>${esc(li)}</li>`).join('')}</ul>`:`<p>${esc(x)}</p>`).join('');
+  const long=r.t.join(' ').length>330;
+  return `<article class="rv"><span class="qm">&ldquo;</span><div class="tx${long?' long':''}">${body}</div>${long?'<button class="more">Read full review</button>':''}<footer><div><b>${esc(r.j)}</b><span>${esc(r.d)} &middot; Upwork</span></div><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span></footer></article>`}).join('');
+const insHTML=INS.map(x=>`<span>${esc(x[0])}<b>${x[1]}</b></span>`).join('');
+['1','2'].forEach(n=>{document.getElementById('revs'+n).innerHTML=revHTML;document.getElementById('ins'+n).innerHTML=insHTML;});
+document.addEventListener('click',e=>{const b=e.target.closest('.rv .more');if(!b)return;const c=b.closest('.rv');c.classList.toggle('open');b.textContent=c.classList.contains('open')?'Show less':'Read full review';});
 /* photo: drop sami.png next to index.html to use your photo */
 const img=document.getElementById('photoImg');
 img.addEventListener('load',()=>{document.getElementById('photo').hidden=false;document.getElementById('heroalt').hidden=true;
