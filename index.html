@@ -220,6 +220,20 @@ body.detail #detail{display:block}
 .veil.on{opacity:1;pointer-events:auto}
 .sheet{position:fixed;top:0;right:0;bottom:0;width:min(640px,100vw);background:var(--paper);color:var(--ink);z-index:70;transform:translateX(102%);transition:transform .45s cubic-bezier(.2,.8,.2,1);overflow-y:auto;padding:28px 36px 40px}
 .sheet.on{transform:none}
+.sheet{overscroll-behavior:contain}
+html.lock,html.lock body{overflow:hidden}
+.rmod{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(5,15,10,.6);backdrop-filter:blur(5px)}
+.rmod.on{display:flex}
+.rbox{background:var(--paper);color:var(--ink);width:min(720px,100%);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.rhead{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:24px 28px 16px;border-bottom:1px solid var(--line)}
+.rhead h3{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0}
+.rhead small{display:block;margin-top:6px;font-size:14px;color:#555}
+.rhead .st{color:#e07b1a;font-weight:700}
+.rhead .close{float:none;position:static;flex:none}
+.rbody{padding:20px 28px 26px;overflow-y:auto;overscroll-behavior:contain;font-size:16.5px;line-height:1.65;font-style:italic}
+.rbody p{margin:0 0 14px}
+.rbody ul{margin:0 0 14px;padding-left:20px}
+.rfoot{padding:14px 28px;border-top:1px solid var(--line);display:flex;justify-content:flex-end}
 .close{position:sticky;top:0;float:right;background:var(--ink);color:#fff;border:0;font-weight:700;font-size:13px;padding:8px 13px;z-index:2;box-shadow:0 3px 0 rgba(0,0,0,.2)}
 .ah{display:flex;gap:18px;align-items:center;margin:36px 0 26px;clear:both}
 .av{width:110px;height:110px;border-radius:50%;background:var(--g2);border:4px solid #fff;outline:1px solid #cfd5d1;flex:none;display:grid;place-items:center;overflow:hidden}
@@ -257,8 +271,7 @@ body.detail #detail{display:block}
 .rv .tx{font-size:15.5px;line-height:1.6;margin:8px 0 14px;max-height:9.6em;overflow:hidden;position:relative}
 .rv .tx p{margin:0 0 10px}
 .rv .tx ul{margin:0 0 10px;padding-left:18px}
-.rv.open .tx{max-height:none}
-.rv:not(.open) .tx.long::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3em;background:linear-gradient(rgba(18,63,44,0),#123f2c)}
+.rv .tx.long::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3em;background:linear-gradient(rgba(18,63,44,0),#123f2c)}
 .rv .more{background:none;border:0;color:var(--mint);font-weight:700;font-size:14px;padding:0 0 12px}
 .rv footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px;font-size:13px}
 .rv footer b{display:block;font-weight:700;font-size:14px}
@@ -385,6 +398,11 @@ body.detail #detail{display:block}
 <section id="detail" aria-live="polite"></section>
 
 <div class="veil" id="veil"></div>
+<div class="rmod" id="rmod" role="dialog" aria-modal="true" aria-labelledby="rtitle"><div class="rbox">
+  <div class="rhead"><div><h3 id="rtitle"></h3><small id="rmeta"></small></div><button class="close" id="rclose">close &times;</button></div>
+  <div class="rbody" id="rbody"></div>
+  <div class="rfoot"><a class="b k" href="https://www.upwork.com/freelancers/~01233a83182140c1f0">See all reviews on Upwork</a></div>
+</div></div>
 
 <aside class="sheet" id="about" aria-label="About Sami">
   <button class="close" data-close>close &times;</button>
@@ -644,12 +662,21 @@ const REV=[
  {j:"Custom Website + CMS for a Luxury Auto Detailing Brand",d:"Jan 2026",t:["Sam is a great developer and delivered as promised!"]}
 ];
 const INS=[["Committed to Quality",20],["Clear Communicator",16],["Reliable",13],["Detail Oriented",9],["Solution Oriented",8],["Collaborative",7],["Professional",7],["Accountable for Outcomes",6]];
+const revBody=r=>r.t.map(x=>Array.isArray(x)?`<ul>${x.map(li=>`<li>${esc(li)}</li>`).join('')}</ul>`:`<p>${esc(x)}</p>`).join('');
 const revHTML=REV.map((r,i)=>{const body=r.t.map(x=>Array.isArray(x)?`<ul>${x.map(li=>`<li>${esc(li)}</li>`).join('')}</ul>`:`<p>${esc(x)}</p>`).join('');
   const long=r.t.join(' ').length>330;
-  return `<article class="rv"><span class="qm">&ldquo;</span><div class="tx${long?' long':''}">${body}</div>${long?'<button class="more">Read full review</button>':''}<footer><div><b>${esc(r.j)}</b><span>${esc(r.d)} &middot; Upwork</span></div><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span></footer></article>`}).join('');
+  return `<article class="rv"><span class="qm">&ldquo;</span><div class="tx${long?' long':''}">${body}</div>${long?`<button class="more" data-r="${i}">Read full review</button>`:''}<footer><div><b>${esc(r.j)}</b><span>${esc(r.d)} &middot; Upwork</span></div><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span></footer></article>`}).join('');
 const insHTML=INS.map(x=>`<span>${esc(x[0])}<b>${x[1]}</b></span>`).join('');
 ['1','2'].forEach(n=>{document.getElementById('revs'+n).innerHTML=revHTML;document.getElementById('ins'+n).innerHTML=insHTML;});
-document.addEventListener('click',e=>{const b=e.target.closest('.rv .more');if(!b)return;const c=b.closest('.rv');c.classList.toggle('open');b.textContent=c.classList.contains('open')?'Show less':'Read full review';});
+const rmod=document.getElementById('rmod');let lastBtn=null;
+function openRev(i){const r=REV[i];document.getElementById('rtitle').textContent=r.j;
+  document.getElementById('rmeta').innerHTML=`<span class="st">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0</span> &middot; ${esc(r.d)} &middot; Upwork`;
+  const rb=document.getElementById('rbody');rb.innerHTML=revBody(r);rb.scrollTop=0;
+  rmod.classList.add('on');document.documentElement.classList.add('lock');document.getElementById('rclose').focus();}
+function closeRev(){rmod.classList.remove('on');if(!document.querySelector('.sheet.on'))document.documentElement.classList.remove('lock');if(lastBtn)lastBtn.focus();}
+document.addEventListener('click',e=>{const b=e.target.closest('.rv .more');if(!b)return;lastBtn=b;openRev(+b.dataset.r);});
+document.getElementById('rclose').addEventListener('click',closeRev);
+rmod.addEventListener('click',e=>{if(e.target===rmod)closeRev();});
 /* photo: drop sami.png next to index.html to use your photo */
 const img=document.getElementById('photoImg');
 img.addEventListener('load',()=>{document.getElementById('photo').hidden=false;document.getElementById('heroalt').hidden=true;
@@ -676,12 +703,12 @@ addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onS
 
 /* sheets */
 const veil=document.getElementById('veil');
-function openSheet(id){closeSheets();document.getElementById(id).classList.add('on');veil.classList.add('on');}
-function closeSheets(){document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('on'));veil.classList.remove('on');}
+function openSheet(id){closeSheets();const sh=document.getElementById(id);sh.classList.add('on');sh.scrollTop=0;veil.classList.add('on');document.documentElement.classList.add('lock');}
+function closeSheets(){document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('on'));veil.classList.remove('on');if(!document.getElementById('rmod').classList.contains('on'))document.documentElement.classList.remove('lock');}
 document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openSheet(b.dataset.open)));
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeSheets));
 veil.addEventListener('click',closeSheets);
-addEventListener('keydown',e=>{if(e.key==='Escape')closeSheets();});
+addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(rmod.classList.contains('on'))closeRev();else closeSheets();});
 
 /* project detail pages (#project-id), each linkable from Upwork */
 const det=document.getElementById('detail');
