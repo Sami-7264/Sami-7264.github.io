@@ -245,6 +245,22 @@ body.detail #detail{display:block}
 .how li span{font-family:Anton;font-size:22px;color:#1f6b46}
 .tchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:42px}
 .tchips span{border:1px solid #cfd5d1;background:#fff;padding:5px 9px;font-size:13px;font-weight:600}
+.upw{margin-bottom:42px}
+.upb{background:var(--g2);color:#fff;padding:16px 18px;margin-bottom:12px}
+.upb b{font-family:Anton;font-weight:400;font-size:24px;display:block;text-transform:uppercase}
+.upb span{font-size:14px;opacity:.9}
+.upl{border:1px solid var(--line);background:#fff;padding:6px 16px 10px;margin-bottom:12px}
+.upl .lb{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#555;padding:8px 0 4px}
+.upl div,.upl a{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #eef1ee;font-size:14px;font-weight:600}
+.upl a:hover{color:#1f6b46}
+.upl em{font-style:normal;font-weight:500;color:#1f6b46;white-space:nowrap}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:8px}
+.board .col{background:#171d1a;border:1px solid #232b27;border-radius:4px;padding:5px}
+.board .col>i{display:block;font-style:normal;font-size:7.5px;color:#9aa49f;margin-bottom:4px}
+.board .tk{background:#1d2420;border:1px solid #2b342f;border-radius:3px;padding:4px 5px;margin-bottom:4px;transition:all .35s}
+.board .tk b{display:block;font-size:8px;color:#eef2ef;font-weight:600}
+.board .tk small{font-size:6.5px;color:#7d8781}
+.board .tk.on{border-color:#9be7c1;box-shadow:0 0 0 2px rgba(155,231,193,.2)}
 .cred{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin-bottom:42px}
 .cred div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
 .cred span{color:#555;white-space:nowrap;font-weight:500}
@@ -261,6 +277,7 @@ body.detail #detail{display:block}
 
 @media(max-width:1100px){.work,#detail{padding-left:5vw;padding-right:5vw}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:800px){
+  .hstats{gap:14px}
   .script{font-size:30px}
   .nav{grid-template-columns:auto 1fr auto;padding:10px 12px}.nav .l,.nav .r{gap:8px}.brand{display:none}.nb{font-size:13px;padding:6px 10px}
   .hero{height:auto;min-height:0;padding:0 0 40px}
@@ -284,7 +301,7 @@ body.detail #detail{display:block}
 <header class="nav">
   <div class="l"><button class="nb" data-open="about" style="transform:rotate(-2deg)">about me</button><a class="nb" id="navWork" href="#work">portfolio</a></div>
   <div class="brand">SAMI ULLAH BUTT</div>
-  <div class="r"><button class="nb" data-open="contact">contacts</button><a class="nb dk" href="https://www.upwork.com/freelancers/samiullahbutt">book a call</a></div>
+  <div class="r"><button class="nb" data-open="contact">contacts</button><a class="nb dk" href="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755">book a call</a></div>
 </header>
 
 <main id="home">
@@ -294,16 +311,16 @@ body.detail #detail{display:block}
     <div class="photo" id="photo" hidden><img src="sami.png" alt="Sami Ullah Butt" id="photoImg"></div>
     <div class="heroalt" id="heroalt"><div class="laptop"><div class="lscreen" id="heroScreen"></div><div class="lbase"></div></div></div>
     <div class="hcopy">
-      <div class="pill"><i></i>Open to work on Upwork &middot; 6+ years shipping</div>
+      <div class="pill"><i></i>Top Rated on Upwork &middot; 100% Job Success</div>
       <h1>SaaS products with <span>AI agents</span> built right in.</h1>
       <p>Senior Software Engineer at XpertDigi. I build multi-tenant platforms on Node.js, Laravel and Next.js, then add OpenAI agents, RAG and real-time voice.</p>
       <div class="hstats">
+        <div><b>50</b><span>Upwork jobs</span></div>
+        <div><b>100%</b><span>Job success</span></div>
+        <div><b>$20K+</b><span>Earned</span></div>
         <div><b>6+ yrs</b><span>Experience</span></div>
-        <div><b>3+ yrs</b><span>AI in production</span></div>
-        <div><b>2</b><span>Live SaaS platforms</span></div>
-        <div><b>5</b><span>Companies</span></div>
       </div>
-      <div class="btns"><a class="b w" href="#work">See my work <span aria-hidden="true">&darr;</span></a><a class="b o" href="https://www.upwork.com/freelancers/samiullahbutt">Hire me on Upwork</a></div>
+      <div class="btns"><a class="b w" href="#work">See my work <span aria-hidden="true">&darr;</span></a><a class="b o" href="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755">Book a call on Upwork</a></div>
     </div>
     <div class="lan" aria-hidden="true">
       <div class="strap"></div><div class="clip"></div>
@@ -311,7 +328,7 @@ body.detail #detail{display:block}
         <h3>ENGINEER<br>CARD <small>2026</small></h3>
         <div class="sub">FULL STACK // AI ENGINEER</div>
         <div class="idp" id="idp"><b>S</b></div>
-        <dl><div><dt>Name</dt><dd>Sami Ullah Butt</dd></div><div><dt>Focus</dt><dd>SaaS + AI agents</dd></div><div><dt>Upwork</dt><dd>Available now</dd></div><div><dt>Base</dt><dd>Lahore, PK</dd></div></dl>
+        <dl><div><dt>Name</dt><dd>Sami Ullah Butt</dd></div><div><dt>Focus</dt><dd>SaaS + AI agents</dd></div><div><dt>Upwork</dt><dd>Top Rated &middot; 100% JSS</dd></div><div><dt>Base</dt><dd>Lahore, PK</dd></div></dl>
       </div></div>
     </div>
   </section>
@@ -320,7 +337,7 @@ body.detail #detail{display:block}
     <div class="stick">
       <div class="w1" id="w1">PRODUCTS THAT</div>
       <div class="w2" id="w2">THINK FOR THEMSELVES</div>
-      <div class="mid"><span id="pc1">7</span> projects from 6+ years<br>of shipping software.</div>
+      <div class="mid"><span id="pc1">7</span> projects from 50<br>Upwork jobs.</div>
       <div class="ribbon" id="ribbon"></div>
       <div class="ibot">
         <div>Full-stack SaaS, AI agents and voice AI work,<br>shown as live walkthroughs.</div>
@@ -332,10 +349,10 @@ body.detail #detail{display:block}
 
   <section class="work" id="work">
     <h2>Work that ships</h2>
-    <p class="lead">Full-stack platforms, AI agents and integrations from my career and Upwork work. Every project has an animated walkthrough of how it works. Open one for the full story.</p>
+    <p class="lead">Full-stack platforms, AI agents, e-commerce and integrations from my Upwork portfolio and career. Every project has an animated walkthrough of how it works. Open one for the full story.</p>
     <div class="filt" id="filt" role="group" aria-label="Filter projects"></div>
     <div class="grid" id="grid"></div>
-    <div class="cta"><h3>Have a product idea that needs a full-stack engineer with AI?</h3><div class="btns"><a class="b k" href="https://www.upwork.com/freelancers/samiullahbutt">Book a call on Upwork</a><a class="b ok" href="https://www.upwork.com/freelancers/samiullahbutt">View Upwork profile</a></div></div>
+    <div class="cta"><h3>Have a product idea that needs a full-stack engineer with AI?</h3><div class="btns"><a class="b k" href="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755">Book a call on Upwork</a><a class="b ok" href="https://www.upwork.com/freelancers/~01233a83182140c1f0">View Upwork profile</a></div></div>
   </section>
 </main>
 
@@ -345,9 +362,9 @@ body.detail #detail{display:block}
 
 <aside class="sheet" id="about" aria-label="About Sami">
   <button class="close" data-close>close &times;</button>
-  <div class="ah"><div class="av" id="av"><b>S</b></div><div><h2>SAMI ULLAH BUTT</h2><div class="r">Full Stack Engineer &middot; AI Engineer &middot; SaaS Builder</div><div class="m">Lahore, Pakistan &middot; UTC+05:00 &middot; English</div></div></div>
+  <div class="ah"><div class="av" id="av"><b>S</b></div><div><h2>SAMI ULLAH BUTT</h2><div class="r">Full Stack + AI Engineer &middot; Top Rated on Upwork</div><div class="m">Lahore, Pakistan &middot; UTC+05:00 &middot; English</div></div></div>
   <p class="bio">I build full-stack SaaS products and put AI inside them. I started in 2020 on PHP and Laravel, built real-estate ERP systems on .NET and SQL Server, and now lead the engineering behind VineLMS and Smart Track CRM at XpertDigi: a live AI voice teacher, an AI call receptionist and a chatbot across WhatsApp, Instagram and Messenger. I care about the parts that make AI safe to sell: tenant isolation, usage metering, spend limits and safety checks.</p>
-  <div class="st5"><div><b>6+</b><span>Years</span></div><div><b>3+</b><span>Years with AI</span></div><div><b>2</b><span>Live SaaS</span></div><div><b>5</b><span>Companies</span></div><div><b>7</b><span>Case studies</span></div></div>
+  <div class="st5"><div><b>50</b><span>Upwork jobs</span></div><div><b>100%</b><span>Job success</span></div><div><b>33</b><span>Client reviews</span></div><div><b>$20K+</b><span>Earned</span></div><div><b>6+</b><span>Years</span></div></div>
   <h3>What I do</h3>
   <div class="svc">
     <div><h4>Full-stack web apps &amp; SaaS</h4><p>Multi-tenant platforms, dashboards, billing and APIs, built end to end and deployed.</p><small>Next.js &middot; Node &middot; Laravel &middot; MySQL</small></div>
@@ -361,8 +378,28 @@ body.detail #detail{display:block}
     <li><span>03</span><div><b>Build and test.</b> Short iterations you can click through, with tests and evaluation for every AI feature.</div></li>
     <li><span>04</span><div><b>Ship and hand over.</b> Deployed, documented and monitored, with support after launch.</div></li>
   </ol>
+  <h3>On Upwork</h3>
+  <div class="upw">
+    <div class="upb"><b>Top Rated</b><span>100% Job Success &middot; 50 jobs &middot; 33 reviews &middot; $20K+ earned &middot; ID verified</span></div>
+    <div class="upl"><span class="lb">Recent contracts</span>
+      <div>SSO implementation + lead and inquiry notifications<em>Active</em></div>
+      <div>AI implementation for a real estate business<em>Active</em></div>
+      <div>AI credit system for a SaaS LMS<em>Active</em></div>
+      <div>Next phase development<em>Active</em></div>
+      <div>Admin panel for a social media app<em>Active</em></div>
+      <div>GHL integration audit and documentation<em>Active</em></div>
+      <div>Website repositioning, Joomla content and structure<em>Active</em></div>
+      <div>RSS feed with images<em>Completed</em></div>
+      <div>Outfixs mobile app development<em>Completed</em></div>
+      <div>Deploy a Python Flask app to production<em>Completed</em></div>
+    </div>
+    <div class="upl"><span class="lb">Services you can buy on Upwork</span>
+      <a href="https://www.upwork.com/services/product/development-it-a-custom-ai-voice-agent-for-calls-receptionist-or-booking-2103948071610533986">Custom AI voice agent for calls, receptionist or booking<em>From $249</em></a>
+      <a href="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755">Development &amp; IT consultation (AI integration)<em>From $30</em></a>
+    </div>
+  </div>
   <h3>Teams I've worked with</h3>
-  <div class="tchips"><span>XpertDigi</span><span>vFairs</span><span>Smartlane Pvt. Ltd.</span><span>SA Systems</span><span>Civic Codes</span><span>Analytica</span><span>ITQ Labs</span></div>
+  <div class="tchips"><span>XpertDigi</span><span>vFairs</span><span>Smartlane Pvt. Ltd.</span><span>SA Systems</span><span>Civic Codes</span><span>Analytica</span><span>ITQ Labs</span><span>Cashe</span><span>Swiss Tech Solutions</span></div>
   <h3>Experience &amp; education</h3>
   <div class="cred">
     <div>Senior Software Engineer &middot; XpertDigi<span>2023 to now</span></div>
@@ -374,15 +411,15 @@ body.detail #detail{display:block}
   </div>
   <h3>Toolbox</h3>
   <div class="tchips" id="tools"></div>
-  <div class="btns"><a class="b k" href="https://www.upwork.com/freelancers/samiullahbutt">Book a call on Upwork</a><a class="b ok" href="https://www.upwork.com/freelancers/samiullahbutt">View Upwork profile</a><a class="b ok" href="#work" data-close>See the work</a></div>
+  <div class="btns"><a class="b k" href="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755">Book a call on Upwork</a><a class="b ok" href="https://www.upwork.com/freelancers/~01233a83182140c1f0">View Upwork profile</a><a class="b ok" href="#work" data-close>See the work</a></div>
 </aside>
 
 <aside class="sheet" id="contact" aria-label="Contact Sami">
   <button class="close" data-close>close &times;</button>
   <h2 class="ch">Let's build your next product.</h2>
   <p class="bio">Tell me what you're building. On a short call we go through the idea, I tell you how I'd build it, which stack and AI pieces fit, and roughly how long it takes.</p>
-  <a class="ccard p" href="https://www.upwork.com/freelancers/samiullahbutt"><span><b>Book a call</b><small>Send me a message on Upwork &middot; free project review</small></span></a>
-  <a class="ccard" href="https://www.upwork.com/freelancers/samiullahbutt"><span><b>Hire me on Upwork</b><small>Full stack + AI engineer &middot; upwork.com/freelancers/samiullahbutt</small></span></a>
+  <a class="ccard p" href="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755"><span><b>Book a call</b><small>Pick a time on Upwork &middot; consultation from $30</small></span></a>
+  <a class="ccard" href="https://www.upwork.com/freelancers/~01233a83182140c1f0"><span><b>Hire me on Upwork</b><small>Top Rated &middot; 100% Job Success &middot; 50 jobs</small></span></a>
   <a class="ccard" href="https://www.linkedin.com/in/samiullahbutt"><span><b>Connect on LinkedIn</b><small>linkedin.com/in/samiullahbutt</small></span></a>
   <a class="ccard" href="https://github.com/sami-7264"><span><b>See my code on GitHub</b><small>github.com/sami-7264</small></span></a>
   <div class="info">
@@ -391,13 +428,13 @@ body.detail #detail{display:block}
     <div><span>Availability</span><b>Freelance and full-time</b></div>
     <div><span>Languages</span><b>English</b></div>
     <div><span>Agency</span><b>ITQ Labs</b></div>
-    <div><span>Profile</span><b>Upwork &middot; LinkedIn</b></div>
+    <div><span>Upwork</span><b>Top Rated &middot; 100% JSS</b></div>
   </div>
 </aside>
 
 <script>
 {
-const UP="https://www.upwork.com/freelancers/samiullahbutt";
+const UP="https://www.upwork.com/freelancers/~01233a83182140c1f0",CONS="https://www.upwork.com/services/consultation/development-it-sami-1963102410247175755";
 const C={ai:"AI & agents",saas:"SaaS platforms",fs:"Full stack",int:"Integrations"};
 const ic=(t,c)=>({t,c});
 const P=[
@@ -408,7 +445,7 @@ const P=[
  msgs:[["Coach","Uploaded lesson recording · 42 min",0,0],["Whisper","Transcribed · course draft: 6 modules, 3 quizzes",1,1],["AI teacher","Let's solve 2x + 3 = 11. What's our first step?",1,2],["Student 2","Subtract 3 from both sides?",0,3],["AI tutor","Right. Module 2 covers this, see slide 4.",1,4],["System","Safety check passed · credits 82% left",1,5]],
  steps:[["A coach uploads a recording","Audio or video goes in, and the tenant's own content library grows."],["Whisper drafts the course","The recording is transcribed and turned into modules, assignments and quizzes."],["The AI teacher goes live","A spoken lesson for the whole class on the OpenAI Realtime API over self-hosted LiveKit."],["Students answer by voice","Students speak back and the teacher responds in real time."],["The tutor answers from course content","Retrieval grounds every answer in that tenant's own material."],["Safety and spend checks run","Child-safety and crisis detection, plus per-tenant AI credit ceilings."]],
  ch:"Coaches, tutors and universities needed one platform to create courses and teach them, with AI that is safe for students and whose costs stay under control per customer.",
- built:["Multi-tenant LMS on AdonisJS 6, Next.js and MySQL","Live AI voice teacher on OpenAI Realtime with self-hosted LiveKit","One-shot course generator from audio or video using Whisper","Course-aware RAG tutor per tenant","Child-safety and crisis detection on AI chats","AI-credit wallet with spend ceilings, Stripe Connect payouts, Capacitor mobile apps"],
+ built:["Multi-tenant LMS on AdonisJS 6, Next.js and MySQL","Live AI voice teacher on OpenAI Realtime with self-hosted LiveKit, AI slides and a raise-hand question queue","One-shot course generator from audio or video using Whisper","Course-aware RAG tutor per tenant","Child-safety and crisis detection on AI chats","AI-credit billing on an append-only ledger with Stripe Connect, plus Capacitor mobile apps"],
  res:"Live at vinelms.com: one platform where AI builds the course, teaches it live and tutors students, with safety and cost controls per tenant.",
  chips:["TypeScript","AdonisJS 6","Next.js","OpenAI Realtime","Whisper","LiveKit","Stripe Connect","Capacitor"]},
 {id:"smart-track-crm",cat:["ai","saas","int"],t:"Smart Track AI CRM",lab:"SMART TRACK",ln:["AI-powered CRM","Node.js · Vapi · Twilio","Live · multi-tenant"],
@@ -420,19 +457,64 @@ const P=[
  log:["whatsapp: \"Is the 3-bed still available?\"","call answered by AI receptionist","knowledge base: 3 matching answers","reply sent · viewing booked Thu 4 pm","usage metered · tenant #18"],
  steps:[["A customer reaches out","A message lands from web chat, WhatsApp, Messenger or Instagram in one real-time inbox."],["The AI receptionist answers calls","Inbound calls are picked up by a voice agent on Vapi and Twilio."],["The agent checks the knowledge base","Answers come from a knowledge base generated from each tenant's own data."],["It replies or books","The agent replies on the same channel, books the next step or hands off to a person."],["Usage is metered","Every AI action is metered per tenant for billing."]],
  ch:"Businesses were answering calls and messages across four or five channels by hand, and missed leads whenever nobody was free.",
- built:["Multi-tenant CRM on Node.js, Express, Sequelize and MySQL","AI call receptionist with Vapi and Twilio","One AI chatbot for web, WhatsApp, Messenger and Instagram","Auto-generated knowledge base per tenant","Usage metering with Square and Stripe billing","Real-time inbox with Socket.IO and Elasticsearch search"],
+ built:["Multi-tenant CRM on Node.js, Express, Sequelize and MySQL","AI call receptionist with Vapi and Twilio","One AI chatbot for web, WhatsApp, Messenger and Instagram","Auto-generated knowledge base per tenant","Live human takeover and per-minute billing for calls","Role-scoped tools so prompt injection cannot cross tenants","Usage metering with Square and Stripe billing","Real-time inbox with Socket.IO and Elasticsearch search"],
  res:"Live at smarttrackcrm.com: calls and messages from every channel answered by AI in one place, with usage billed per tenant.",
  chips:["Node.js","Express","MySQL","Next.js","Socket.IO","Twilio","Vapi","Elasticsearch"]},
-{id:"light-design",cat:["ai"],t:"Light Design roof detection",lab:"LIGHT DESIGN",ln:["Computer vision","SAM3 · FastAPI · React","In development"],
- tools:"Python · SAM3 · FastAPI · React",d:"Detects eaves, rakes, ridges, hips and valleys from a house photo to plan holiday lighting.",
- role:"Engineer · detection pipeline, evaluation harness and API",
- win:["light-design","roof-detect","F1 71.2"],type:"roof",
- log:["photo uploaded · house_04.jpg","SAM3: 3 roof planes segmented","geometry: 9 lines fitted","roles: eave, rake, ridge, hip","bench: F1 71.2 · stages verified"],
- steps:[["A house photo is uploaded","Installers upload one photo of the house from the street."],["SAM3 segments the roof","Roof planes and blockers are segmented through fal.ai."],["Geometry fits the lines","A custom classical CV pipeline fits lines and vanishing points."],["Each line gets a role","Eave, rake, ridge, hip and valley, which decides where lights go."],["The bench checks every stage","An evaluation harness tracks F1 and latency and fails if a stage silently does nothing."]],
- ch:"Planning holiday lights means measuring every roof line by hand. The app needed to find and label roof lines from a single photo, reliably enough to quote from.",
- built:["SAM3 roof-plane segmentation via fal.ai","Custom geometry pipeline for line fitting and vanishing points","Role classification for eave, rake, ridge, hip and valley","One pipeline entry point shared by the API and the bench","Evaluation harness tracking F1 and latency per stage","Cost analysis of which detection calls buy accuracy"],
- res:"A working detection pipeline with a verified F1 baseline of 71.2, measured through the real request path.",
- chips:["Python 3.11","FastAPI","SQLAlchemy","PostgreSQL","SAM3","React 18","TypeScript"]},
+{id:"light-design",cat:["ai","fs"],t:"AI holiday lighting designer",lab:"LIGHT DESIGN AI",ln:["Photo to priced quote","SAM 3 · vision LLM · FastAPI","F1 58.1 to 67.1"],
+ tools:"Python · SAM 3 · FastAPI · React",d:"Turns one photo of a house into a measured, priced holiday lighting proposal.",
+ role:"Full-Stack and AI Engineer · computer vision, LLMs, backend and frontend",
+ win:["light-design-ai","detect","F1 67.1"],type:"roof",
+ log:["photo in · 1428 Palm Grove Dr","SAM 3: rooflines, palms, hedges","vision LLM + geometry: F1 67.1","lengths from camera geometry · 186 ft","\"red and green rakes\" parsed · quote ready"],
+ steps:[["A salesperson uploads one photo","One street photo of the house is all the system needs."],["SAM 3 finds the roof and objects","Rooflines, palms and hedges are detected via SAM 3."],["Each roof edge is classified","A vision LLM plus geometry checks label eaves, rakes, hips, ridges and valleys, lifting detection F1 from 58.1 to 67.1."],["Lengths come from one photo","Camera geometry turns pixels into real-world feet."],["Design in plain English, then quote","The salesperson describes the design (97.2% parsing accuracy), bulbs are placed and priced from the catalogue, and Gemini renders a dusk preview."]],
+ ch:"Lighting companies measured every roofline by hand and drew designs manually before they could send a quote, which slowed every sale.",
+ built:["SAM 3 detection of rooflines, palms and hedges","Vision LLM plus geometry checks to classify each roof edge","Real-world lengths from a single photo using camera geometry","Plain-English design instructions with 97.2% parsing accuracy","Bulb placement and pricing from the catalogue","Gemini dusk preview render, on Python, FastAPI and React"],
+ res:"One house photo becomes a measured, priced lighting proposal. Roofline detection F1 went from 58.1 to 67.1.",
+ chips:["Python","FastAPI","React","SAM 3","Vision LLMs","Gemini","Camera geometry"]},
+{id:"ecommerce-engine",cat:["fs","int"],t:"E-commerce engine: 300,000+ products",lab:"300,000+",ln:["Scalable e-commerce engine","Node.js · React","Multi-store sync"],
+ tools:"Node.js · React · Discogs · eBay",d:"An e-commerce platform for a Los Angeles record store with real-time inventory sync across every sales channel.",
+ role:"Full-Stack Developer",
+ win:["record-store","inventory-sync","live · 300k items"],type:"flow",
+ nodes:[["ST","Physical store","in-store sales","#f3c66b",13,30,0],["SC","Sell Your Collection","estimate flow","#f3a4c8",13,72,3],["IE","Inventory engine","single source","#ff9f6b",48,50,1],["DG","Discogs","listings","#9ec5ff",84,20,2],["EB","eBay","listings","#f3c66b",84,50,2],["WB","Website","storefront","#9be7c1",84,80,2]],
+ wires:[[0,2,0],[1,2,3],[2,3,2],[2,4,2],[2,5,2]],
+ log:["sale in store · LP marked sold","inventory engine updated","Discogs, eBay and website synced","seller submitted a collection · estimate sent","search: 300,000+ items in milliseconds"],
+ steps:[["A record sells in the store","The sale is recorded the moment it happens."],["The inventory engine updates","One source of truth for stock across the business."],["Every channel syncs","Discogs, eBay and the website update in real time, so nothing is sold twice."],["Sellers get instant estimates","A custom Sell Your Collection module automates estimates."],["Search stays fast at scale","Optimized queries keep search fast over 300,000+ products, even during live drops."]],
+ ch:"A record store selling in-store, on Discogs, on eBay and online needed one stock count, or the same record could be sold twice.",
+ built:["Platform for a catalog of more than 300,000 products","Real-time inventory sync across Discogs, eBay and the physical store","Optimized database queries for fast search","Sell Your Collection module with automated estimates","Backend built for high traffic during live drops and events"],
+ res:"Stock stays consistent across every sales channel, with no double selling.",
+ chips:["Node.js","React","API Integration","Discogs API","eBay API","Database Optimization"]},
+{id:"cashe-qr-ordering",cat:["fs","saas","int"],t:"Cashe: restaurant QR ordering and payments",lab:"CASHE",ln:["Restaurant platform","QR menus · payments · POS","Shipped"],
+ tools:"Laravel · Node.js · React · POS",d:"Guests scan a QR code to view the menu, order, split the bill and pay from their phone.",
+ role:"Full-Stack Developer · ordering and payment flows",
+ win:["cashe","orders","POS connected"],type:"board",
+ cols:[["New",[["Table 4","3 items · open",0],["Table 5","2 items · open",0]]],["Preparing",[["Table 7","3 items · open",1],["Table 8","4 items · split bill",2]]],["Ready",[["Table 10","paid",3],["Table 11","paid · synced to POS",4]]]],
+ steps:[["A guest scans the QR code","The menu opens on their phone, no app needed."],["The order goes to the kitchen","Orders appear live on the restaurant dashboard."],["The table splits the bill","Guests split equally or by item."],["Everyone pays from their phone","Each guest pays their own share."],["POS and analytics update","Orders sync to the POS and payments are reconciled in real-time analytics."]],
+ ch:"Cafes, restaurants and food courts wanted guests to order and pay without waiting for staff, while keeping their POS in sync.",
+ built:["QR menus with ordering from the guest's phone","Bill splitting, equally or by item","Payments flow","POS integration with reconciled payments","Order management and real-time analytics"],
+ res:"Guests order and pay from their phone, and every order lands in the restaurant's POS.",
+ chips:["PHP","Laravel","Node.js","React","POS integration","Payments"]},
+{id:"car-detailing-booking",cat:["fs"],t:"Car detailing booking website",lab:"+40%",ln:["Online bookings","Next.js · Tailwind CSS","90+ Lighthouse"],
+ tools:"Next.js · React · Tailwind CSS",d:"A fast booking site for a premium car detailing service that replaced manual scheduling.",
+ role:"Full-Stack Developer",
+ win:["detailing","booking","90+ lighthouse"],type:"table",
+ rows:[["Exterior detail","Mon 16","9:00 AM","p"],["Interior detail","Mon 16","10:30 AM","p"],["Ceramic coating","Mon 16","12:00 PM","d"],["SSR + images","Lighthouse","90+","p"],["Local SEO","Pages","Indexed","p"]],
+ log:["service chosen: ceramic coating","live availability loaded","12:00 PM slot confirmed","SSR + image optimization · 90+","result: +40% online bookings"],
+ steps:[["The customer picks a service","Exterior, interior or ceramic coating."],["Live availability shows","A custom React scheduling module shows real open slots."],["They confirm a time","Booking is instant, no phone calls."],["Pages load fast","Server-side rendering and image optimization for a 90+ Lighthouse score."],["Local search brings them in","Structured, crawlable pages for local SEO."]],
+ ch:"The business scheduled by hand and needed a fast, premium-looking site that customers could book from directly.",
+ built:["Next.js and Tailwind CSS web app","Custom React booking engine with real-time availability","SSR and image optimization for a 90+ Lighthouse score","Mobile-first luxury design matched to the brand","Local SEO setup"],
+ res:"40% more online bookings and simpler customer management.",
+ chips:["Next.js","React","Tailwind CSS","Performance","Local SEO"]},
+{id:"swiss-tech-website",cat:["fs"],t:"Swiss Tech: multi-language enterprise site",lab:"SWISS TECH",ln:["Enterprise website","Next.js · i18n","Global SEO"],
+ tools:"Next.js · React · i18n",d:"The English version of a Swiss enterprise software website, built for international search and more languages.",
+ role:"Frontend Developer",
+ win:["swiss-tech","i18n","en live"],type:"flow",
+ nodes:[["EN","/en","English","#ff6b6b",14,20,0],["DE","/de","Deutsch","#3a4640",14,42,4],["FR","/fr","Francais","#3a4640",14,64,4],["IT","/it","Italiano","#3a4640",14,86,4],["I8","i18n router","[locale]/...","#c7a8ff",48,50,1],["SE","SEO metadata","hreflang","#9be7c1",84,30,2],["JS","JSON-LD","structured data","#9ec5ff",84,70,3]],
+ wires:[[0,4,0],[1,4,4],[2,4,4],[3,4,4],[4,5,2],[4,6,3]],
+ log:["locale /en live","i18n routing: /[locale]/...","metadata + canonical + hreflang","JSON-LD organization schema","de, fr, it ready to extend"],
+ steps:[["The English site goes live","Responsive, minimalist European layouts in Next.js."],["One i18n framework routes content","Dynamic content switching per locale."],["Metadata is set per language","Optimized English metadata, canonical and hreflang tags."],["Structured data is added","JSON-LD for international search."],["More languages plug in","German, French and Italian are ready to extend."]],
+ ch:"A Swiss B2B software company needed an English site that ranks internationally, without rebuilding it for each new language.",
+ built:["English version in Next.js","i18n framework for dynamic content switching","Optimized English metadata and structured data","Responsive layouts for a global B2B audience"],
+ res:"A fast, search-ready site that is ready to extend to more languages.",
+ chips:["Next.js","React","i18n","SEO","JSON-LD"]},
 {id:"hire-a-pro",cat:["fs","int"],t:"Hire a Pro on GoHighLevel",lab:"HIRE A PRO",ln:["Service marketplace","GoHighLevel · Meta APIs","Shipped"],
  tools:"GoHighLevel · Meta Pixel · CAPI",d:"A Hire a Pro app with a GHL-based web portal, where every API is managed through GoHighLevel.",
  role:"Developer · GHL portal, API layer and Meta tracking",
@@ -493,6 +575,8 @@ function mock(p){
     b=`<div class="chat">${p.msgs.map(m=>`<div class="msg${m[2]?' ai':''}" data-s="${m[3]}" data-k="vis"><span class="who">${esc(m[0])}</span><span class="tx">${esc(m[1])}</span></div>`).join('')}</div>`;
   }else if(p.type==='table'){
     b=`<div class="tbl"><div class="th"><span>Item</span><span>Ref</span><span>Status</span><span>Owner</span></div>${p.rows.map((r,i)=>`<div class="tr" data-s="${i}" data-k="on"><span>${esc(r[0])}</span><span>${esc(r[1])}</span><span class="tg ${r[3]}">${esc(r[2])}</span><span>${i>2?'Finance':'Sales'}</span></div>`).join('')}</div>`;
+  }else if(p.type==='board'){
+    b=`<div class="board">${p.cols.map(c=>`<div class="col"><i>&#9679; ${esc(c[0])}</i>${c[1].map(k=>`<div class="tk" data-s="${k[2]}" data-k="on"><b>${esc(k[0])}</b><small>${esc(k[1])}</small></div>`).join('')}</div>`).join('')}</div>`;
   }else if(p.type==='roof'){
     b=`<svg class="roof" viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet"><rect x="55" y="82" width="190" height="60" fill="#1b231f" stroke="#2e3833"/><rect x="135" y="104" width="28" height="38" fill="#26302b"/><rect x="75" y="98" width="30" height="22" fill="#26302b"/><rect x="195" y="98" width="30" height="22" fill="#26302b"/><polygon points="40,84 110,34 190,34 260,84" fill="#202a25" data-s="1" data-k="vis" class="ln" style="stroke:none"/><path class="ln" data-s="2" data-k="vis" d="M110 34 L190 34" stroke="#9ec5ff"/><path class="ln" data-s="3" data-k="vis" d="M40 84 L110 34 M260 84 L190 34" stroke="#c7a8ff"/><path class="ln" data-s="3" data-k="vis" d="M40 84 L260 84" stroke="#f3c66b"/><text x="136" y="28" fill="#9ec5ff">ridge</text><text x="44" y="60" fill="#c7a8ff">hip</text><text x="134" y="96" fill="#f3c66b">eave</text></svg>`;
   }
@@ -573,7 +657,7 @@ function renderDetail(p){
   <div class="box"><h4>What I built</h4><ul>${p.built.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
   <div class="box res"><h4>Result</h4><p>${esc(p.res)}</p><div class="chips">${p.chips.map(c=>`<span>${esc(c)}</span>`).join('')}</div></div></div>
   <div class="pn"><a href="#${prev.id}"><small>&larr; Previous</small><b>${esc(prev.t)}</b></a><a href="#${next.id}"><small>Next &rarr;</small><b>${esc(next.t)}</b></a></div>
-  <div class="cta"><h3>Want something like this for your product?</h3><div class="btns"><a class="b k" href="${UP}">Book a call on Upwork</a><a class="b ok" href="${UP}">Hire me on Upwork</a></div></div>`;
+  <div class="cta"><h3>Want something like this for your product?</h3><div class="btns"><a class="b k" href="${CONS}">Book a call on Upwork</a><a class="b ok" href="${UP}">Hire me on Upwork</a></div></div>`;
   const win=det.querySelector('#dscreen .win'),btns=[...det.querySelectorAll('#steps button')],n=p.steps.length,D=3200;
   const go=k=>{cur=k;setStep(win,k);btns.forEach((b,j)=>{b.setAttribute('aria-current',String(j===k));b.style.setProperty('--t',D+'ms');});
     const a=btns[k];a.style.animation='none';a.offsetWidth;a.style.animation='';};
